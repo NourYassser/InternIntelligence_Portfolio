@@ -1,0 +1,76 @@
+[
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "Method": "Add",
+    "RelativePath": "api/User/AddUsers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "InternIntelligence_Portfolio.Dtos.User.UserDtos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "Method": "DeleteUsers",
+    "RelativePath": "api/User/DeleteUsers",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "Method": "UpdateUsers",
+    "RelativePath": "api/User/EditUsers",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dtos",
+        "Type": "InternIntelligence_Portfolio.Dtos.User.UserDtos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "Method": "GetAll",
+    "RelativePath": "api/User/GetUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "Method": "GetById",
+    "RelativePath": "api/User/GetUsersById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
