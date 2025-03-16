@@ -10,8 +10,7 @@ namespace InternIntelligence_Portfolio.Services
         Contact_Form GetById(int id);
         void Add(ContactsDto contactsDtos);
         void Delete(int id);
-        void Update(ContactsDto contactsDtos);
-        void Save();
+        void Update(int Id, ContactsDto contactsDtos);
     }
     public class Contact_FormService : IContact_FormService
     {
@@ -25,6 +24,7 @@ namespace InternIntelligence_Portfolio.Services
         {
             return _genericRepo.GetAll().Select(p => new Contact_Form
             {
+                Name = p.Name,
                 Email = p.Email,
                 PhoneNumber = p.PhoneNumber
             }).ToList();
@@ -44,34 +44,27 @@ namespace InternIntelligence_Portfolio.Services
         {
             var contacts = new Contact_Form()
             {
+                Name = contactsDtos.Name,
                 Email = contactsDtos.Email,
                 PhoneNumber = contactsDtos.PhoneNumber
             };
             _genericRepo.Add(contacts);
-            _genericRepo.Save();
         }
 
         public void Delete(int id)
         {
             var getId = _genericRepo.GetById(id);
             _genericRepo.Delete(getId);
-            _genericRepo.Save();
         }
-
-        public void Save()
+        public void Update(int Id, ContactsDto contactsDtos)
         {
-            _genericRepo.Save();
-        }
+            var projects = _genericRepo.GetById(Id);
 
-        public void Update(ContactsDto contactsDtos)
-        {
-            var projects = _genericRepo.GetById(contactsDtos.Id);
-
+            projects.Name = contactsDtos.Name;
             projects.Email = contactsDtos.Email;
             projects.PhoneNumber = contactsDtos.PhoneNumber;
 
             _genericRepo.Update(projects);
-            _genericRepo.Save();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using InternIntelligence_Portfolio.Dtos.Skills;
 using InternIntelligence_Portfolio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternIntelligence_Portfolio.Controllers
@@ -23,32 +24,51 @@ namespace InternIntelligence_Portfolio.Controllers
         [HttpGet("GetSkillsById")]
         public IActionResult GetById(int id)
         {
-            return Ok(_skillService.GetById(id));
+            var skill = _skillService.GetById(id);
+            if (skill == null)
+            {
+                return NotFound();
+            }
+            return Ok(skill);
         }
 
         [HttpPost("AddSkills")]
+        [Authorize]
         public IActionResult Add(SkillsDto skill)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             _skillService.Add(skill);
             return NoContent();
         }
 
         [HttpPut("EditSkills")]
-        public IActionResult UpdateSkills(SkillsDto dtos)
+        [Authorize]
+        public IActionResult UpdateSkills(int Id, SkillsDto dtos)
         {
-            var Skills = _skillService.GetById(dtos.Id);
+            var Skills = _skillService.GetById(Id);
             if (Skills == null)
             {
                 return BadRequest();
             }
-            _skillService.Update(dtos);
+            _skillService.Update(Id, dtos);
             return NoContent();
         }
 
         [HttpDelete("DeleteSkills")]
+        [Authorize]
         public IActionResult DeleteSkills(int id)
         {
-            _skillService.Delete(id);
+            try
+            {
+                _skillService.Delete(id);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
             return NoContent();
         }
     }

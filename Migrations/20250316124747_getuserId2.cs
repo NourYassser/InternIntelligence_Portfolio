@@ -5,7 +5,7 @@
 namespace InternIntelligence_Portfolio.Migrations
 {
     /// <inheritdoc />
-    public partial class UserService : Migration
+    public partial class getuserId2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -22,21 +22,23 @@ namespace InternIntelligence_Portfolio.Repos
         }
         public IQueryable<T> GetAll()
         {
-            return _context.Set<T>().AsQueryable();
+            return _context.Set<T>().ToList().AsQueryable();
         }
 
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }
-        public async void Add(T t)
+        public void Add(T t)
         {
-            await _context.Set<T>().AddAsync(t);
+            _context.Set<T>().Add(t);
+            Save();
         }
 
         public void Delete(T t)
         {
             _context.Set<T>().Remove(t);
+            Save();
         }
 
 
@@ -48,6 +50,7 @@ namespace InternIntelligence_Portfolio.Repos
         public void Update(T t)
         {
             _context.Set<T>().Update(t);
+            Save();
         }
     }
 }

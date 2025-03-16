@@ -10,8 +10,7 @@ namespace InternIntelligence_Portfolio.Services
         Projects GetById(int id);
         void Add(ProjectDtos projectDtos);
         void Delete(int id);
-        void Update(ProjectDtos projectDtos);
-        void Save();
+        void Update(int Id, ProjectDtos projectDtos);
     }
     public class ProjectsService : IProjectsService
     {
@@ -21,13 +20,16 @@ namespace InternIntelligence_Portfolio.Services
         {
             _genericRepo = genericRepo;
         }
+
         public List<Projects> GetAll()
         {
             return _genericRepo.GetAll().Select(p => new Projects
             {
                 Title = p.Title,
-                Descriptions = p.Descriptions,
-                UserId = p.UserId
+                Description = p.Description,
+                GitHubUrl = p.GitHubUrl,
+                CreatedAt = DateTime.UtcNow
+
             }).ToList();
         }
 
@@ -46,35 +48,28 @@ namespace InternIntelligence_Portfolio.Services
             var projects = new Projects()
             {
                 Title = projectDtos.Title,
-                Descriptions = projectDtos.Descriptions,
-                UserId = projectDtos.UserId
+                Description = projectDtos.Description,
+                GitHubUrl = projectDtos.GitHubUrl,
+                CreatedAt = DateTime.UtcNow
             };
             _genericRepo.Add(projects);
-            _genericRepo.Save();
         }
 
         public void Delete(int id)
         {
             var getId = _genericRepo.GetById(id);
             _genericRepo.Delete(getId);
-            _genericRepo.Save();
         }
-
-        public void Save()
+        public void Update(int Id, ProjectDtos projectDtos)
         {
-            _genericRepo.Save();
-        }
-
-        public void Update(ProjectDtos projectDtos)
-        {
-            var projects = _genericRepo.GetById(projectDtos.Id);
+            var projects = _genericRepo.GetById(Id);
 
             projects.Title = projectDtos.Title;
-            projects.Descriptions = projectDtos.Descriptions;
-            projects.UserId = projectDtos.UserId;
+            projects.Description = projectDtos.Description;
+            projects.GitHubUrl = projectDtos.GitHubUrl;
+            projects.CreatedAt = DateTime.UtcNow;
 
             _genericRepo.Update(projects);
-            _genericRepo.Save();
         }
     }
 }

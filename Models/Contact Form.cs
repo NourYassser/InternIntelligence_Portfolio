@@ -3,9 +3,8 @@
     public class Contact_Form
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public int UserId { get; set; }
-        public User Users { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
     }
 }

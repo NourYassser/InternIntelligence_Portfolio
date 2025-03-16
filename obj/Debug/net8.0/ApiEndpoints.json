@@ -1,24 +1,24 @@
 [
   {
-    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AchievementsController",
     "Method": "Add",
-    "RelativePath": "api/User/AddUsers",
+    "RelativePath": "api/Achievements/AddAchievements",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "InternIntelligence_Portfolio.Dtos.User.UserDtos",
+        "Name": "ach",
+        "Type": "InternIntelligence_Portfolio.Dtos.Achievements.AchievementDtos",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
-    "Method": "DeleteUsers",
-    "RelativePath": "api/User/DeleteUsers",
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AchievementsController",
+    "Method": "DeleteAchievements",
+    "RelativePath": "api/Achievements/DeleteAchievements",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -32,25 +32,30 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
-    "Method": "UpdateUsers",
-    "RelativePath": "api/User/EditUsers",
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AchievementsController",
+    "Method": "UpdateAchievements",
+    "RelativePath": "api/Achievements/EditAchievements",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "dtos",
-        "Type": "InternIntelligence_Portfolio.Dtos.User.UserDtos",
+        "Type": "InternIntelligence_Portfolio.Dtos.Achievements.AchievementDtos",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AchievementsController",
     "Method": "GetAll",
-    "RelativePath": "api/User/GetUsers",
+    "RelativePath": "api/Achievements/GetAchievements",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -58,9 +63,278 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "InternIntelligence_Portfolio.Controllers.UserController",
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AchievementsController",
     "Method": "GetById",
-    "RelativePath": "api/User/GetUsersById",
+    "RelativePath": "api/Achievements/GetAchievementsById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "InternIntelligence_Portfolio.Dtos.LoginDto.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "InternIntelligence_Portfolio.Dtos.RegisterDto.RegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ContactsController",
+    "Method": "Add",
+    "RelativePath": "api/Contacts/AddContacts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contact",
+        "Type": "InternIntelligence_Portfolio.Dtos.Contacts.ContactsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ContactsController",
+    "Method": "DeleteContacts",
+    "RelativePath": "api/Contacts/DeleteContacts",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ContactsController",
+    "Method": "UpdateContacts",
+    "RelativePath": "api/Contacts/EditContacts",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "dtos",
+        "Type": "InternIntelligence_Portfolio.Dtos.Contacts.ContactsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ContactsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Contacts/GetContacts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ContactsController",
+    "Method": "GetById",
+    "RelativePath": "api/Contacts/GetContactsById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ProjectsController",
+    "Method": "Add",
+    "RelativePath": "api/Projects/AddProjects",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Projects",
+        "Type": "InternIntelligence_Portfolio.Dtos.Projects.ProjectDtos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ProjectsController",
+    "Method": "DeleteProjectss",
+    "RelativePath": "api/Projects/DeleteProjects",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ProjectsController",
+    "Method": "UpdateProjectss",
+    "RelativePath": "api/Projects/EditProjects",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "dtos",
+        "Type": "InternIntelligence_Portfolio.Dtos.Projects.ProjectDtos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ProjectsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Projects/GetProjects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.ProjectsController",
+    "Method": "GetById",
+    "RelativePath": "api/Projects/GetProjectsById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.SkillsController",
+    "Method": "Add",
+    "RelativePath": "api/Skills/AddSkills",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skill",
+        "Type": "InternIntelligence_Portfolio.Dtos.Skills.SkillsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.SkillsController",
+    "Method": "DeleteSkills",
+    "RelativePath": "api/Skills/DeleteSkills",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.SkillsController",
+    "Method": "UpdateSkills",
+    "RelativePath": "api/Skills/EditSkills",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "dtos",
+        "Type": "InternIntelligence_Portfolio.Dtos.Skills.SkillsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.SkillsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Skills/GetSkills",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.SkillsController",
+    "Method": "GetById",
+    "RelativePath": "api/Skills/GetSkillsById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

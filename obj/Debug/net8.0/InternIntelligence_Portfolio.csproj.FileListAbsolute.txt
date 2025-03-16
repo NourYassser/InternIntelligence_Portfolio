@@ -138,3 +138,6 @@ C:\Users\nour_\source\repos\InternIntelligence_Portfolio\obj\Debug\net8.0\refint
 C:\Users\nour_\source\repos\InternIntelligence_Portfolio\obj\Debug\net8.0\InternIntelligence_Portfolio.pdb
 C:\Users\nour_\source\repos\InternIntelligence_Portfolio\obj\Debug\net8.0\InternIntelligence_Portfolio.genruntimeconfig.cache
 C:\Users\nour_\source\repos\InternIntelligence_Portfolio\obj\Debug\net8.0\ref\InternIntelligence_Portfolio.dll
+C:\Users\nour_\source\repos\InternIntelligence_Portfolio\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nour_\source\repos\InternIntelligence_Portfolio\obj\Debug\net8.0\InternIntelligence_Portfolio.sourcelink.json
+C:\Users\nour_\source\repos\InternIntelligence_Portfolio\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

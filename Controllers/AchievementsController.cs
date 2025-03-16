@@ -1,11 +1,13 @@
 ﻿using InternIntelligence_Portfolio.Dtos.Achievements;
 using InternIntelligence_Portfolio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternIntelligence_Portfolio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AchievementsController : ControllerBase
     {
         private readonly IAchievementService _Achievementservice;
@@ -23,32 +25,51 @@ namespace InternIntelligence_Portfolio.Controllers
         [HttpGet("GetAchievementsById")]
         public IActionResult GetById(int id)
         {
-            return Ok(_Achievementservice.GetById(id));
+            var ach = _Achievementservice.GetById(id);
+            if (ach == null)
+            {
+                return NotFound();
+            }
+            return Ok(ach);
         }
 
         [HttpPost("AddAchievements")]
+        [Authorize]
         public IActionResult Add(AchievementDtos ach)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             _Achievementservice.Add(ach);
             return NoContent();
         }
 
         [HttpPut("EditAchievements")]
-        public IActionResult UpdateAchievements(AchievementDtos dtos)
+        [Authorize]
+        public IActionResult UpdateAchievements(int Id, AchievementDtos dtos)
         {
-            var Achievements = _Achievementservice.GetById(dtos.Id);
+            var Achievements = _Achievementservice.GetById(Id);
             if (Achievements == null)
             {
                 return BadRequest();
             }
-            _Achievementservice.Update(dtos);
+            _Achievementservice.Update(Id, dtos);
             return NoContent();
         }
 
         [HttpDelete("DeleteAchievements")]
+        [Authorize]
         public IActionResult DeleteAchievements(int id)
         {
-            _Achievementservice.Delete(id);
+            try
+            {
+                _Achievementservice.Delete(id);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
             return NoContent();
         }
     }

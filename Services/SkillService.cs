@@ -10,8 +10,7 @@ namespace InternIntelligence_Portfolio.Services
         Skills GetById(int id);
         void Add(SkillsDto skillDtos);
         void Delete(int id);
-        void Update(SkillsDto skillDtos);
-        void Save();
+        void Update(int Id, SkillsDto skillDtos);
     }
     public class SkillService : ISkillService
     {
@@ -25,9 +24,9 @@ namespace InternIntelligence_Portfolio.Services
         {
             return _genericRepo.GetAll().Select(p => new Skills
             {
-                Title = p.Title,
-                Descriptions = p.Descriptions,
-                UserId = p.UserId
+                Name = p.Name,
+                Category = p.Category
+
             }).ToList();
         }
 
@@ -45,36 +44,26 @@ namespace InternIntelligence_Portfolio.Services
         {
             var skills = new Skills()
             {
-                Title = skillDtos.Title,
-                Descriptions = skillDtos.Descriptions,
-                UserId = skillDtos.UserId
+                Name = skillDtos.Name,
+                Category = skillDtos.Category
             };
             _genericRepo.Add(skills);
-            _genericRepo.Save();
         }
 
         public void Delete(int id)
         {
             var getId = _genericRepo.GetById(id);
             _genericRepo.Delete(getId);
-            _genericRepo.Save();
         }
 
-        public void Save()
+        public void Update(int Id, SkillsDto skillDtos)
         {
-            _genericRepo.Save();
-        }
+            var skill = _genericRepo.GetById(Id);
 
-        public void Update(SkillsDto skillDtos)
-        {
-            var skill = _genericRepo.GetById(skillDtos.Id);
-
-            skill.Title = skillDtos.Title;
-            skill.Descriptions = skillDtos.Descriptions;
-            skill.UserId = skillDtos.UserId;
+            skill.Name = skillDtos.Name;
+            skill.Category = skillDtos.Category;
 
             _genericRepo.Update(skill);
-            _genericRepo.Save();
         }
     }
 }

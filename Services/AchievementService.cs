@@ -10,8 +10,7 @@ namespace InternIntelligence_Portfolio.Services
         Achievements GetById(int id);
         void Add(AchievementDtos achievementDtos);
         void Delete(int id);
-        void Update(AchievementDtos achievementDtos);
-        void Save();
+        void Update(int Id, AchievementDtos achievementDtos);
     }
     public class AchievementService : IAchievementService
     {
@@ -26,8 +25,11 @@ namespace InternIntelligence_Portfolio.Services
             return _genericRepo.GetAll().Select(p => new Achievements
             {
                 Title = p.Title,
-                Descriptions = p.Descriptions,
-                UserId = p.UserId
+                Description = p.Description,
+                Date = p.Date,
+                Provider = p.Provider,
+                CertificateUrl = p.CertificateUrl
+
             }).ToList();
         }
 
@@ -46,35 +48,31 @@ namespace InternIntelligence_Portfolio.Services
             var achievements = new Achievements()
             {
                 Title = achievementDtos.Title,
-                Descriptions = achievementDtos.Descriptions,
-                UserId = achievementDtos.UserId
+                Description = achievementDtos.Description,
+                Date = achievementDtos.Date,
+                Provider = achievementDtos.Provider,
+                CertificateUrl = achievementDtos.CertificateUrl
             };
             _genericRepo.Add(achievements);
-            _genericRepo.Save();
         }
 
         public void Delete(int id)
         {
             var getId = _genericRepo.GetById(id);
             _genericRepo.Delete(getId);
-            _genericRepo.Save();
         }
 
-        public void Save()
+        public void Update(int Id, AchievementDtos achievementDtos)
         {
-            _genericRepo.Save();
-        }
-
-        public void Update(AchievementDtos achievementDtos)
-        {
-            var achievement = _genericRepo.GetById(achievementDtos.Id);
+            var achievement = _genericRepo.GetById(Id);
 
             achievement.Title = achievementDtos.Title;
-            achievement.Descriptions = achievementDtos.Descriptions;
-            achievement.UserId = achievementDtos.UserId;
+            achievement.Description = achievementDtos.Description;
+            achievement.Date = achievementDtos.Date;
+            achievement.Provider = achievementDtos.Provider;
+            achievement.CertificateUrl = achievementDtos.CertificateUrl;
 
             _genericRepo.Update(achievement);
-            _genericRepo.Save();
         }
     }
 }
