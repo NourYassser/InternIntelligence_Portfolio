@@ -7,5 +7,6 @@
         public DateTime Date { get; set; }
         public string Provider { get; set; } = string.Empty;
         public string CertificateUrl { get; set; } = string.Empty;
+        public int UserId { get; set; }
     }
 }

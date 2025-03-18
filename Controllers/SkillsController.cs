@@ -7,6 +7,7 @@ namespace InternIntelligence_Portfolio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SkillsController : ControllerBase
     {
         private readonly ISkillService _skillService;
@@ -33,7 +34,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpPost("AddSkills")]
-        [Authorize]
         public IActionResult Add(SkillsDto skill)
         {
             if (!ModelState.IsValid)
@@ -45,7 +45,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpPut("EditSkills")]
-        [Authorize]
         public IActionResult UpdateSkills(int Id, SkillsDto dtos)
         {
             var Skills = _skillService.GetById(Id);
@@ -58,7 +57,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpDelete("DeleteSkills")]
-        [Authorize]
         public IActionResult DeleteSkills(int id)
         {
             try

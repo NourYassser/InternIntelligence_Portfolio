@@ -80,15 +80,15 @@
   },
   {
     "ContainingType": "InternIntelligence_Portfolio.Controllers.AuthController",
-    "Method": "Login",
+    "Method": "LoginUser",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "InternIntelligence_Portfolio.Dtos.LoginDto.LoginModel",
+        "Name": "dto",
+        "Type": "InternIntelligence_Portfolio.Dtos.UserDto.UserDtos",
         "IsRequired": true
       }
     ],
@@ -96,15 +96,25 @@
   },
   {
     "ContainingType": "InternIntelligence_Portfolio.Controllers.AuthController",
-    "Method": "Register",
+    "Method": "Logout",
+    "RelativePath": "api/Auth/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InternIntelligence_Portfolio.Controllers.AuthController",
+    "Method": "RegisterUser",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "InternIntelligence_Portfolio.Dtos.RegisterDto.RegisterModel",
+        "Name": "dto",
+        "Type": "InternIntelligence_Portfolio.Dtos.UserDto.UserDtos",
         "IsRequired": true
       }
     ],

@@ -34,7 +34,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpPost("AddAchievements")]
-        [Authorize]
         public IActionResult Add(AchievementDtos ach)
         {
             if (!ModelState.IsValid)
@@ -46,7 +45,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpPut("EditAchievements")]
-        [Authorize]
         public IActionResult UpdateAchievements(int Id, AchievementDtos dtos)
         {
             var Achievements = _Achievementservice.GetById(Id);
@@ -59,7 +57,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpDelete("DeleteAchievements")]
-        [Authorize]
         public IActionResult DeleteAchievements(int id)
         {
             try

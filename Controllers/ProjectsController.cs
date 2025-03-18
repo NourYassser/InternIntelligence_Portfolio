@@ -7,6 +7,7 @@ namespace InternIntelligence_Portfolio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProjectsController : ControllerBase
     {
         private readonly IProjectsService _ProjectsService;
@@ -32,7 +33,6 @@ namespace InternIntelligence_Portfolio.Controllers
 
             return Ok(project);
         }
-        [Authorize]
         [HttpPost("AddProjects")]
         public IActionResult Add(ProjectDtos Projects)
         {
@@ -45,7 +45,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpPut("EditProjects")]
-        [Authorize]
         public IActionResult UpdateProjectss(int Id, ProjectDtos dtos)
         {
             var Projectss = _ProjectsService.GetById(Id);
@@ -58,7 +57,6 @@ namespace InternIntelligence_Portfolio.Controllers
         }
 
         [HttpDelete("DeleteProjects")]
-        [Authorize]
         public IActionResult DeleteProjectss(int id)
         {
             try
